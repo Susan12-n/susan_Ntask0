@@ -1,12 +1,7 @@
-const express = require('express');
 const axios = require('axios');
-const cors = require('cors');
 
-const app = express();
-app.use(cors());
-
-app.get('/', async (req, res) => {
-    const name = req.query.name;
+module.exports = async (req, res) => {
+    const { name } = req.query;
 
     if (!name) {
         return res.status(400).json({
@@ -29,7 +24,7 @@ app.get('/', async (req, res) => {
         const is_confident =
             data.probability >= 0.7 && data.count >= 100;
 
-        res.json({
+        return res.status(200).json({
             status: "success",
             data: {
                 name: data.name,
@@ -42,11 +37,9 @@ app.get('/', async (req, res) => {
         });
 
     } catch (error) {
-        res.status(500).json({
+        return res.status(500).json({
             status: "error",
             message: "Server error"
         });
     }
-});
-
-module.exports = app;
+};
