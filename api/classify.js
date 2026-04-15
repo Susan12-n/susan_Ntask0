@@ -5,20 +5,13 @@ const cors = require('cors');
 const app = express();
 app.use(cors());
 
-app.get('/api/classify', async (req, res) => {
+app.get('/', async (req, res) => {
     const name = req.query.name;
 
     if (!name) {
         return res.status(400).json({
             status: "error",
             message: "Missing or empty name parameter"
-        });
-    }
-
-    if (typeof name !== 'string' || name.trim() === '') {
-        return res.status(400).json({
-            status: "error",
-            message: "Name must be a string"
         });
     }
 
@@ -56,4 +49,4 @@ app.get('/api/classify', async (req, res) => {
     }
 });
 
-app.listen(3000, () => console.log("Server running on port 3000"));
+module.exports = app;

@@ -1,0 +1,9 @@
+
+{
+  "routes": [
+    {
+      "src": "/api/classify",
+      "dest": "/api/classify.js"
+    }
+  ]
+}
