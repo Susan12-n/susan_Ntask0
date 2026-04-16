@@ -12,7 +12,7 @@ module.exports = async (req, res) => {
     if (typeof name !== 'string' || name.trim() === '') {
         return res.status(400).json({
             status: "error",
-            message: "Name parameter must be a non-empty string"
+            message: "Name  must be a string"
         });
     }
 
