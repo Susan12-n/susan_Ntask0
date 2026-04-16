@@ -1,6 +1,6 @@
 const axios = require('axios');
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   // CORS
   res.setHeader('Access-Control-Allow-Origin', '*');
   res.setHeader('Access-Control-Allow-Methods', 'GET');
@@ -11,7 +11,6 @@ export default async function handler(req, res) {
 
   const { name } = req.query;
 
-  // 400 - missing or empty
   if (name === undefined || name === '') {
     return res.status(400).json({
       status: 'error',
@@ -19,7 +18,6 @@ export default async function handler(req, res) {
     });
   }
 
-  // 422 - not a string
   if (typeof name !== 'string') {
     return res.status(422).json({
       status: 'error',
@@ -34,7 +32,6 @@ export default async function handler(req, res) {
 
     const { gender, probability, count } = response.data;
 
-    // Edge case
     if (!gender || count === 0) {
       return res.status(200).json({
         status: 'error',
@@ -61,4 +58,4 @@ export default async function handler(req, res) {
       message: 'Upstream or server failure'
     });
   }
-}
+};

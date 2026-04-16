@@ -1,5 +1,6 @@
 {
-  "rewrites": [
-    { "source": "/api/classify", "destination": "/api/classify" }
+  "version": 2,
+  "routes": [
+    { "src": "/api/classify", "dest": "/api/classify.js" }
   ]
 }
