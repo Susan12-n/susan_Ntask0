@@ -9,6 +9,12 @@ module.exports = async (req, res) => {
             message: "Missing or empty name parameter"
         });
     }
+    if (typeof name !== 'string' || name.trim() === '') {
+        return res.status(400).json({
+            status: "error",
+            message: "Name parameter must be a non-empty string"
+        });
+    }
 
     try {
         const response = await axios.get(`https://api.genderize.io?name=${name}`);
