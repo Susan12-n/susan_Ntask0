@@ -31,7 +31,7 @@ project-folder/
 ├── README.md
 ⚙️ Installation & Setup
 1. Clone the repository
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Susan12-n/susan_Ntask0
 cd your-repo
 2. Install dependencies
 npm install
@@ -124,9 +124,10 @@ Example:
 curl http://localhost:3000/api/classify?name=Mary
 🌍 Deployment
 
-The API is deployed and accessible at:
+The API is deployed and accessible 
+https://susan-ntask0.vercel.app/
 
-https://your-app-url.com
+https://your-project-name.vercel.app/api/classify?name=John
 
 
 
